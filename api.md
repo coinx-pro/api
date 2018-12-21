@@ -44,6 +44,7 @@ currencies          array(object)       Currency list
 Contract List
 -------------
 ``` GET https://api.coinx.pro/rest/v1/contracts```
+
 - Response:
 ```
 contracts           array(object)       Contract list
@@ -59,11 +60,13 @@ contracts           array(object)       Contract list
 
 Price Ticker
 ------------
-```GET /rest/v1/ticker```
+```GET https://api.coinx.pro/rest/v1/ticker```
+
 - Parameters:
 ```
 symbol              string              Contract symbol
 ```
+
 - Response:
 ```
 timestamp           int                 Timestamp
@@ -71,6 +74,20 @@ last                double              Last price
 volume              double              Volume in the last 24 hours
 bid                 double              Bid price
 ask                 double              Ask price
+```
+
+- Reuqest example:
+``` GET https://api.coinx.pro/rest/v1/ticker?symbol=BTC/USDT```
+
+- Response example:
+```
+{
+    "ask": 4020.79,
+    "timestamp": 1545377083173003,
+    "volume": 96.74439,
+    "last": 3970.58,
+    "bid": 3919.97
+}
 ```
 
 
