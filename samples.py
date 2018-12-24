@@ -32,7 +32,7 @@ def get_price_ticker(symbol):
 
 
 def get_all_price_ticker():
-    endpoint = '/rest/v1/all_ticker'
+    endpoint = '/rest/v1/tickers'
     response = requests.get(BASE + endpoint)
     if response.ok:
         return response.json()

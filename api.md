@@ -76,7 +76,7 @@ bid                 double              Bid price
 ask                 double              Ask price
 ```
 
-- Reuqest example:
+- Request example:
 ``` GET https://api.coinx.pro/rest/v1/ticker?symbol=BTC/USDT```
 
 - Response example:
@@ -93,39 +93,46 @@ ask                 double              Ask price
 
 All Price Ticker
 ----------------
-```GET https://api.coinx.pro/rest/v1/all_ticker```
+```GET https://api.coinx.pro/rest/v1/tickers```
 
 - Response:
-Each key of the response JSON object is a contract symbol, and the
-corresponding value is in the following format:
 ```
-timestamp           int                 Timestamp
-last                double              Last price
-volume              double              Volume in the last 24 hours
-change              double              Price change percentage in the last 24 hours
-bid                 double              Bid price
-ask                 double              Ask price
+data                  array(object)       Price Tickers list
+  contract            string              Contract symbol
+  commodity           string              Commodity symbol
+  currency            string              Currency symbol
+  timestamp           int                 Timestamp
+  last                double              Last price
+  volume              double              Volume in the last 24 hours
+  change              double              Price change percentage in the last 24 hours
+  bid                 double              Bid price
+  ask                 double              Ask price
 ```
 
 - Response example:
 ```
 {
-    "BTC/USDT": {
-        "timestamp": 1514736000000000,
-        "ask": 6666.66,
-        "bid": 6655.55,
-        "change": 23.08,
-        "last": 6666.66,
-        "volume": 523.10
-    },
-    "ETH/USDT": {
-        "timestamp": 1514736000000000,
-        "ask": 488.88,
-        "bid": 487.12,
-        "change": 4.25,
-        "last": 487.12,
-        "volume": 8242.35
-    }
+    "data": [
+        {
+            "contract": "ETH/BTC",
+            "commodity": "ETH",
+            "currency": "BTC",
+            "last": 0.02734, "volume": 0.0,
+            "change": 0.0, "timestamp": 1545616877117472,
+            "bid": 0.02633, "ask": 0.02835
+        },
+        {
+            "contract": "BTC/USDT",
+            "commodity": "BTC",
+            "currency": "USDT",
+            "last": 4135.28,
+            "volume": 111.57573,
+            "change": 4.2993124530243385,
+            "timestamp": 1545616877216149,
+            "bid": 4081.48,
+            "ask": 4193.47
+        }
+    ]
 }
 ```
 
